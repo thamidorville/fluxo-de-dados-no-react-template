@@ -1,11 +1,13 @@
 import React from 'react'
+import { Input } from '../FormularioCadastro/styled'
 import {ContainerPostagem, Image, Description} from './styles'
 
-const TelaDaPostagem = () => {
+const TelaDaPostagem = (props) => {
   return (
     <ContainerPostagem>
-            <Image src={"https://picsum.photos/536/354"} alt='drone view'/>
-            <Description>{'Lorem Ipsum'}</Description>
+            <Image src={props.urlFoto} alt='drone view'/>
+            <Description>{props.descricao}</Description>
+            <h2>{props.titulo}</h2>
     </ContainerPostagem>
   )
 }
