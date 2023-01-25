@@ -1,7 +1,9 @@
+import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import  FormularioCadastro  from "./components/FormularioCadastro/FormularioCadastro";
 import { Header } from "./components/Header";
 import TelaDaPostagem from "./components/TelaDaPostagem/TelaDaPostagem";
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -17,16 +19,30 @@ const Container = styled.div`
 `;
 
 function App() {
-  
+//	Criamos estado e função de alterar estado no pai;
+  const [urlFoto, setUrlFoto] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [titulo, setTitulo] = useState("")
   return (
     <>
       <GlobalStyle />
       <Container>
         <aside>
           <Header />
-          <FormularioCadastro />
+          <FormularioCadastro 
+          urlFoto={urlFoto}
+          setUrlFoto={setUrlFoto}
+          descricao={descricao}
+          setDescricao={setDescricao}
+          titulo={titulo}
+          setTitulo={setTitulo}
+          />
         </aside>
-        <TelaDaPostagem/>
+        <TelaDaPostagem 
+        urlFoto={urlFoto} 
+        descricao={descricao} 
+        titulo={titulo} 
+        setTitulo={setTitulo}/>
       </Container>
     </>
   );
